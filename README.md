@@ -140,9 +140,12 @@ The project uses Slack's **Incoming Webhooks** to post summaries.
 * Backend and frontend are decoupled for better scalability and clarity.
 
 ### 🔄 Application Flow Diagram
-App Flow![total logic](https://github.com/user-attachments/assets/6278801b-a548-4a16-a533-925eb0457afb)
-Frontend Flow![frontend logic](https://github.com/user-attachments/assets/93f74a86-d0a1-4f67-ac8f-0fce1d63a308)
-Backend Flow![backend logic](https://github.com/user-attachments/assets/e4e141d9-f9f2-498b-8e83-3199eb77a4ab)
+### App Flow
+![total logic](https://github.com/user-attachments/assets/6278801b-a548-4a16-a533-925eb0457afb)
+### Frontend Flow
+![frontend logic](https://github.com/user-attachments/assets/93f74a86-d0a1-4f67-ac8f-0fce1d63a308)
+### Backend Flow
+![backend logic](https://github.com/user-attachments/assets/e4e141d9-f9f2-498b-8e83-3199eb77a4ab)
 ---
 
 ## 🔗 Useful Links
