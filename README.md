@@ -27,8 +27,6 @@ A full-stack productivity app that allows users to manage their personal to-do i
 ## 🖼️ Screenshots
 ![Screenshot 2025-05-25 170129](https://github.com/user-attachments/assets/a5f022ad-bb6d-4d6f-bbe9-1aa7cc532941)
 
-### 🧠 Summary Sent to Slack
-
 ## 📂 Project Structure
 
 ```
@@ -89,7 +87,7 @@ npm install
 #### Backend:
 
 ```bash
-npm start
+nodemon app.js
 ```
 
 #### Frontend:
@@ -142,9 +140,9 @@ The project uses Slack's **Incoming Webhooks** to post summaries.
 * Backend and frontend are decoupled for better scalability and clarity.
 
 ### 🔄 Application Flow Diagram
-![App Flow]![total logic](https://github.com/user-attachments/assets/6278801b-a548-4a16-a533-925eb0457afb)
-![Frontend Flow]![frontend logic](https://github.com/user-attachments/assets/93f74a86-d0a1-4f67-ac8f-0fce1d63a308)
-![Backend Flow]![backend logic](https://github.com/user-attachments/assets/e4e141d9-f9f2-498b-8e83-3199eb77a4ab)
+![App Flow][total logic](https://github.com/user-attachments/assets/6278801b-a548-4a16-a533-925eb0457afb)
+![Frontend Flow][frontend logic](https://github.com/user-attachments/assets/93f74a86-d0a1-4f67-ac8f-0fce1d63a308)
+![Backend Flow][backend logic](https://github.com/user-attachments/assets/e4e141d9-f9f2-498b-8e83-3199eb77a4ab)
 ---
 
 ## 🔗 Useful Links
