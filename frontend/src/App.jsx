@@ -9,19 +9,21 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
   const [editingId, setEditingId] = useState(null);
-  const [editText, setEditText] = useState('');
+  const [editText, setEditText] = useState("");
   const [message, setMessage] = useState("");
   const [summary, setSummary] = useState(null);
   const [showSummaryModal, setShowSummaryModal] = useState(false);
   const [slackMessage, setSlackMessage] = useState("");
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+  // Handle window resize for responsiveness
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Fetch todos initially
   useEffect(() => {
     fetchTodos();
   }, []);
@@ -38,7 +40,7 @@ function App() {
   const addTodo = async () => {
     if (!newTodo.trim()) return;
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/todos`), {
+      await axios.post(`${import.meta.env.VITE_API_URL}/todos`, {
         task: newTodo,
         completed: false,
       });
@@ -57,11 +59,11 @@ function App() {
   const saveEdit = async () => {
     if (!editText.trim()) return;
     try {
-      await axios.get(`${import.meta.env.VITE_API_URL}/todos/${editingId}`), {
+      await axios.put(`${import.meta.env.VITE_API_URL}/todos/${editingId}`, {
         task: editText,
       });
       setEditingId(null);
-      setEditText('');
+      setEditText("");
       fetchTodos();
     } catch (err) {
       console.error("Failed to edit todo:", err);
@@ -70,7 +72,7 @@ function App() {
 
   const cancelEdit = () => {
     setEditingId(null);
-    setEditText('');
+    setEditText("");
   };
 
   const toggleTodo = async (id, currentStatus) => {
@@ -109,7 +111,7 @@ function App() {
 
   const sendToSlack = async () => {
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/send-to-slack`, {summery});
+      await axios.post(`${import.meta.env.VITE_API_URL}/send-to-slack`, { summary });
       setSlackMessage("✅ Sent to Slack successfully!");
       setTimeout(() => {
         setShowSummaryModal(false);
@@ -132,7 +134,7 @@ function App() {
         position: "relative",
       }}
     >
-      <h1 style={{ textAlign: "center", color: "#002765", fontSize: '2.1rem' }}>
+      <h1 style={{ textAlign: "center", color: "#002765", fontSize: "2.1rem" }}>
         Todo Summary Assistant
       </h1>
 
