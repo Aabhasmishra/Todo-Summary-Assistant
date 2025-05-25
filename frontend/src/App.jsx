@@ -28,7 +28,7 @@ function App() {
 
   const fetchTodos = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/todos");
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/todos`);
       setTodos(res.data);
     } catch (err) {
       console.error("Failed to fetch todos:", err);
@@ -38,7 +38,7 @@ function App() {
   const addTodo = async () => {
     if (!newTodo.trim()) return;
     try {
-      await axios.post("http://localhost:5000/todos", {
+      await axios.post(`${import.meta.env.VITE_API_URL}/todos`), {
         task: newTodo,
         completed: false,
       });
@@ -57,7 +57,7 @@ function App() {
   const saveEdit = async () => {
     if (!editText.trim()) return;
     try {
-      await axios.put(`http://localhost:5000/todos/${editingId}`, {
+      await axios.get(`${import.meta.env.VITE_API_URL}/todos/${editingId}`), {
         task: editText,
       });
       setEditingId(null);
@@ -75,7 +75,7 @@ function App() {
 
   const toggleTodo = async (id, currentStatus) => {
     try {
-      const response = await axios.put(`http://localhost:5000/todos/${id}/toggle`);
+      const response = await axios.put(`${import.meta.env.VITE_API_URL}/todos/${id}/toggle`);
       if (response.data.success) {
         setTodos(
           todos.map((todo) =>
@@ -90,7 +90,7 @@ function App() {
 
   const deleteTodo = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/todos/${id}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/todos/${id}`);
       fetchTodos();
     } catch (err) {
       console.error("Failed to delete todo:", err);
@@ -99,7 +99,7 @@ function App() {
 
   const handleSummarize = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/summarize");
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/summarize`);
       setSummary(response.data.summary);
       setShowSummaryModal(true);
     } catch (err) {
@@ -109,7 +109,7 @@ function App() {
 
   const sendToSlack = async () => {
     try {
-      await axios.post("http://localhost:5000/send-to-slack", { summary });
+      await axios.post(`${import.meta.env.VITE_API_URL}/send-to-slack`, {summery});
       setSlackMessage("✅ Sent to Slack successfully!");
       setTimeout(() => {
         setShowSummaryModal(false);
