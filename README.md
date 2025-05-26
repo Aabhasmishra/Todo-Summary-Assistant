@@ -158,7 +158,7 @@ The project uses Slack's **Incoming Webhooks** to post summaries.
 
 ## 🌐 Deployment
 
-* Vercel URL for frontend
+* Vercel for frontend
 * Render for backend
 
 ---
